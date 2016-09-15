@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		77AD7EA70152C2143BF664FB /* Pods_SnapChatClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B1ACCF0AA2064C161B58BB8 /* Pods_SnapChatClone.framework */; };
+		C42914C21D8A601A00F3D571 /* SnapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42914C11D8A601A00F3D571 /* SnapsViewController.swift */; };
+		C42914C41D8A67E600F3D571 /* PictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42914C31D8A67E600F3D571 /* PictureViewController.swift */; };
 		C4A869081D88CB31008B9318 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A869071D88CB31008B9318 /* AppDelegate.swift */; };
 		C4A8690A1D88CB31008B9318 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A869091D88CB31008B9318 /* SignInViewController.swift */; };
 		C4A8690D1D88CB31008B9318 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4A8690B1D88CB31008B9318 /* Main.storyboard */; };
@@ -18,6 +20,9 @@
 
 /* Begin PBXFileReference section */
 		1B1ACCF0AA2064C161B58BB8 /* Pods_SnapChatClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SnapChatClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C42914C01D8A5F4400F3D571 /* SnapChatClone.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SnapChatClone.entitlements; sourceTree = "<group>"; };
+		C42914C11D8A601A00F3D571 /* SnapsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapsViewController.swift; sourceTree = "<group>"; };
+		C42914C31D8A67E600F3D571 /* PictureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureViewController.swift; sourceTree = "<group>"; };
 		C4A869041D88CB31008B9318 /* SnapChatClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnapChatClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4A869071D88CB31008B9318 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4A869091D88CB31008B9318 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -71,8 +76,11 @@
 		C4A869061D88CB31008B9318 /* SnapChatClone */ = {
 			isa = PBXGroup;
 			children = (
+				C42914C01D8A5F4400F3D571 /* SnapChatClone.entitlements */,
 				C4A869071D88CB31008B9318 /* AppDelegate.swift */,
 				C4A869091D88CB31008B9318 /* SignInViewController.swift */,
+				C42914C11D8A601A00F3D571 /* SnapsViewController.swift */,
+				C42914C31D8A67E600F3D571 /* PictureViewController.swift */,
 				C4A8690B1D88CB31008B9318 /* Main.storyboard */,
 				C4A8690E1D88CB31008B9318 /* Assets.xcassets */,
 				C4A869101D88CB31008B9318 /* LaunchScreen.storyboard */,
@@ -128,6 +136,11 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = K8633K44E8;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -217,7 +230,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4A8690A1D88CB31008B9318 /* SignInViewController.swift in Sources */,
+				C42914C41D8A67E600F3D571 /* PictureViewController.swift in Sources */,
 				C4A869081D88CB31008B9318 /* AppDelegate.swift in Sources */,
+				C42914C21D8A601A00F3D571 /* SnapsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +356,7 @@
 			baseConfigurationReference = F1FB50776EC4757F3C3E49FC /* Pods-SnapChatClone.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SnapChatClone/SnapChatClone.entitlements;
 				DEVELOPMENT_TEAM = K8633K44E8;
 				INFOPLIST_FILE = SnapChatClone/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -355,6 +371,7 @@
 			baseConfigurationReference = E9ED0A70A530027460BECC15 /* Pods-SnapChatClone.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SnapChatClone/SnapChatClone.entitlements;
 				DEVELOPMENT_TEAM = K8633K44E8;
 				INFOPLIST_FILE = SnapChatClone/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
