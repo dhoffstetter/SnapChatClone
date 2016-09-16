@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		77AD7EA70152C2143BF664FB /* Pods_SnapChatClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B1ACCF0AA2064C161B58BB8 /* Pods_SnapChatClone.framework */; };
+		C40E1B961D8BA733007F6433 /* SelectUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40E1B951D8BA733007F6433 /* SelectUserViewController.swift */; };
 		C42914C21D8A601A00F3D571 /* SnapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42914C11D8A601A00F3D571 /* SnapsViewController.swift */; };
 		C42914C41D8A67E600F3D571 /* PictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42914C31D8A67E600F3D571 /* PictureViewController.swift */; };
 		C4A869081D88CB31008B9318 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A869071D88CB31008B9318 /* AppDelegate.swift */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		1B1ACCF0AA2064C161B58BB8 /* Pods_SnapChatClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SnapChatClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C40E1B951D8BA733007F6433 /* SelectUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectUserViewController.swift; sourceTree = "<group>"; };
 		C42914C01D8A5F4400F3D571 /* SnapChatClone.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SnapChatClone.entitlements; sourceTree = "<group>"; };
 		C42914C11D8A601A00F3D571 /* SnapsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapsViewController.swift; sourceTree = "<group>"; };
 		C42914C31D8A67E600F3D571 /* PictureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 				C4A869091D88CB31008B9318 /* SignInViewController.swift */,
 				C42914C11D8A601A00F3D571 /* SnapsViewController.swift */,
 				C42914C31D8A67E600F3D571 /* PictureViewController.swift */,
+				C40E1B951D8BA733007F6433 /* SelectUserViewController.swift */,
 				C4A8690B1D88CB31008B9318 /* Main.storyboard */,
 				C4A8690E1D88CB31008B9318 /* Assets.xcassets */,
 				C4A869101D88CB31008B9318 /* LaunchScreen.storyboard */,
@@ -231,6 +234,7 @@
 			files = (
 				C4A8690A1D88CB31008B9318 /* SignInViewController.swift in Sources */,
 				C42914C41D8A67E600F3D571 /* PictureViewController.swift in Sources */,
+				C40E1B961D8BA733007F6433 /* SelectUserViewController.swift in Sources */,
 				C4A869081D88CB31008B9318 /* AppDelegate.swift in Sources */,
 				C42914C21D8A601A00F3D571 /* SnapsViewController.swift in Sources */,
 			);
