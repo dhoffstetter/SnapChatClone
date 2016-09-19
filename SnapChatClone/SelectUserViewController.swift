@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FirebaseDatabase
+import FirebaseStorage
 
 class SelectUserViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -17,6 +18,7 @@ class SelectUserViewController: UIViewController, UITableViewDataSource, UITable
   var users : [User] = []
   var imageURL = ""
   var descrip = ""
+  var uuid = ""
   
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +56,7 @@ class SelectUserViewController: UIViewController, UITableViewDataSource, UITable
     
     let user = users[indexPath.row]
     
-    let snap = ["from":user.email,"description":descrip,"imageURL":imageURL]
+    let snap = ["from":user.email,"description":descrip,"imageURL":imageURL, "uuid":uuid]
 
     FIRDatabase.database().reference().child("users").child(user.uid).child("snaps").childByAutoId().setValue(snap)
     
