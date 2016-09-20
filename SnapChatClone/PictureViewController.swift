@@ -26,6 +26,14 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
     // Do any additional setup after loading the view.
     
     imagePicker.delegate = self
+    nextButton.isEnabled = false
+    nextButton.setTitle("Select Photo", for: .normal)
+    
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    //nextButton.isEnabled = false
+    // imageView.image = nil
   }
   
   override func didReceiveMemoryWarning() {
@@ -38,6 +46,8 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     imageView.image = image
     imageView.backgroundColor = UIColor.clear
+    nextButton.setTitle("Next", for: .normal)
+    self.nextButton.isEnabled = true
     imagePicker.dismiss(animated: true, completion: nil)
   }
   
@@ -52,6 +62,7 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
   @IBAction func nextTapped(_ sender: AnyObject) {
     
     nextButton.isEnabled = false
+    nextButton.setTitle("Loading...", for: .normal)
     
     let imagesFolder = FIRStorage.storage().reference().child("images")
     let imageData = UIImageJPEGRepresentation(imageView.image!, 0.1)!

@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 import FirebaseStorage
+import FirebaseAuth
 
 class SelectUserViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -30,6 +31,7 @@ class SelectUserViewController: UIViewController, UITableViewDataSource, UITable
       
       FIRDatabase.database().reference().child("users").observe(FIRDataEventType.childAdded, with: {(snapshot) in
       
+        print("Hey")
         print(snapshot)
         
         let user = User()
@@ -41,12 +43,17 @@ class SelectUserViewController: UIViewController, UITableViewDataSource, UITable
       })
       
     }
+  
+  override func viewWillAppear(_ animated: Bool) {
+
+    self.navigationItem.setHidesBackButton(true, animated:false);
+  }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+  
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     
     return users.count
@@ -54,13 +61,31 @@ class SelectUserViewController: UIViewController, UITableViewDataSource, UITable
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     
-    let user = users[indexPath.row]
+    print("didSelectRowAt")
     
-    let snap = ["from":user.email,"description":descrip,"imageURL":imageURL, "uuid":uuid]
+    var snapFrom = ""
+    let userID = FIRAuth.auth()?.currentUser?.uid
+    FIRDatabase.database().reference().child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+      // Get user value
+      snapFrom = (snapshot.value! as AnyObject)["email"] as! String
 
-    FIRDatabase.database().reference().child("users").child(user.uid).child("snaps").childByAutoId().setValue(snap)
-    
-    navigationController!.popToRootViewController(animated: true)
+      print (snapFrom)
+      
+      let user = self.users[indexPath.row]
+      
+      let snap = ["from":snapFrom,"description":self.descrip,"imageURL":self.imageURL, "uuid":self.uuid]
+      //    let snap = ["from":user.email,"description":descrip,"imageURL":imageURL, "uuid":uuid]
+      
+      FIRDatabase.database().reference().child("users").child(user.uid).child("snaps").childByAutoId().setValue(snap)
+      
+      self.navigationController!.popToRootViewController(animated: true)
+
+      // ...
+    }) { (error) in
+      print(error.localizedDescription)
+      self.navigationController!.popToRootViewController(animated: true)
+
+    }
     
   }
   

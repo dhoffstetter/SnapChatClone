@@ -89,8 +89,6 @@ class SnapsViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     cell.textLabel?.text = snap.from
     
-    
-    
     return cell
   }
   
