@@ -61,34 +61,46 @@ class SelectUserViewController: UIViewController, UITableViewDataSource, UITable
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     
-    print("didSelectRowAt")
+    let user = self.users[indexPath.row]
     
-    var snapFrom = ""
-    let userID = FIRAuth.auth()?.currentUser?.uid
-    FIRDatabase.database().reference().child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
-      // Get user value
-      snapFrom = (snapshot.value! as AnyObject)["email"] as! String
-
-      print (snapFrom)
-      
-      let user = self.users[indexPath.row]
-      
-      let snap = ["from":snapFrom,"description":self.descrip,"imageURL":self.imageURL, "uuid":self.uuid]
-      //    let snap = ["from":user.email,"description":descrip,"imageURL":imageURL, "uuid":uuid]
-      
-      FIRDatabase.database().reference().child("users").child(user.uid).child("snaps").childByAutoId().setValue(snap)
-      
-      self.navigationController!.popToRootViewController(animated: true)
-
-      // ...
-    }) { (error) in
-      print(error.localizedDescription)
-      self.navigationController!.popToRootViewController(animated: true)
-
+    let snap = ["from":FIRAuth.auth()!.currentUser!.email!,"description":self.descrip,"imageURL":self.imageURL, "uuid":self.uuid]
+    
+    FIRDatabase.database().reference().child("users").child(user.uid).child("snaps").childByAutoId().setValue(snap)
+    
+    self.navigationController!.popToRootViewController(animated: true)
     }
-    
-  }
   
+  
+//  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//    
+//    print("didSelectRowAt")
+//    
+//    var snapFrom = ""
+//    let userID = FIRAuth.auth()?.currentUser?.uid
+//    FIRDatabase.database().reference().child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+//      // Get user value
+//      snapFrom = (snapshot.value! as AnyObject)["email"] as! String
+//      
+//      print (snapFrom)
+//      
+//      let user = self.users[indexPath.row]
+//      
+//      let snap = ["from":snapFrom,"description":self.descrip,"imageURL":self.imageURL, "uuid":self.uuid]
+//      //    let snap = ["from":user.email,"description":descrip,"imageURL":imageURL, "uuid":uuid]
+//      
+//      FIRDatabase.database().reference().child("users").child(user.uid).child("snaps").childByAutoId().setValue(snap)
+//      
+//      self.navigationController!.popToRootViewController(animated: true)
+//      
+//      // ...
+//    }) { (error) in
+//      print(error.localizedDescription)
+//      self.navigationController!.popToRootViewController(animated: true)
+//      
+//    }
+//    
+//  }
+//  
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
     let cell = UITableViewCell()

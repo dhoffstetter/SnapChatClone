@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -198,11 +199,18 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="mWH-ir-W0t">
-                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="FFG-2M-rZU">
-                            <connections>
-                                <action selector="cameraTapped:" destination="g87-oM-dMv" id="huE-1o-nTA"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="camera" id="FFG-2M-rZU">
+                                <connections>
+                                    <action selector="cameraTapped:" destination="g87-oM-dMv" id="huE-1o-nTA"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Photos" id="j00-cG-0uS">
+                                <connections>
+                                    <action selector="photosTapped:" destination="g87-oM-dMv" id="xx0-h5-v3N"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="descriptionTextField" destination="bgK-8e-K8d" id="Y5u-dX-wQ4"/>
